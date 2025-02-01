@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:off_beat_restaurant/constants/colors.dart';
 import 'package:off_beat_restaurant/constants/text_styles.dart';
+import 'package:off_beat_restaurant/screens/items_screen.dart';
 import 'package:off_beat_restaurant/widgets/discount_widget.dart';
 import 'package:off_beat_restaurant/widgets/top_widget.dart';
 
@@ -166,7 +167,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         discountWidget(context, Colors.deepOrangeAccent),
                       ],
                     ),
-                  )
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Expanded(child: CustomTabBarWithScroll()),
                 ]),
               ),
             ),
