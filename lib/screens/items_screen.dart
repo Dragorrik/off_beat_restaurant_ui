@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:off_beat_restaurant/constants/colors.dart';
 import 'package:off_beat_restaurant/screens/item_details_screen.dart';
 import 'package:off_beat_restaurant/widgets/bottom_sheet_widget.dart';
-import 'package:off_beat_restaurant/widgets/item_widget.dart'; // Ensure this import is correct
+import 'package:off_beat_restaurant/widgets/item_widget.dart';
 
 class CustomTabBarWithScroll extends StatefulWidget {
   const CustomTabBarWithScroll({super.key});
@@ -156,7 +156,7 @@ class _CustomTabBarWithScrollState extends State<CustomTabBarWithScroll> {
               int index = _sections.indexOf(section);
               return GestureDetector(
                 onTap: () {
-                  _scrollToSection(index); // Scroll to the selected section
+                  _scrollToSection(index);
                 },
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -213,7 +213,7 @@ class _CustomTabBarWithScrollState extends State<CustomTabBarWithScroll> {
               final section = _menuData[index];
               final sectionIcon = _sectionsIcon[index];
               return Column(
-                key: _sectionKeys[index], // Assign the key to the section
+                key: _sectionKeys[index],
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
