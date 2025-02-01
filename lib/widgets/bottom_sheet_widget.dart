@@ -3,7 +3,29 @@ import 'package:off_beat_restaurant/constants/colors.dart';
 import 'package:off_beat_restaurant/constants/text_styles.dart';
 import 'package:off_beat_restaurant/screens/item_details_screen.dart';
 
-Widget itemDetailsPopUpWidget(BuildContext context, double mqw, double mqh) {
+void showItemDetailsModal(
+    BuildContext context, double mqw, double mqh, String itemName) {
+  showModalBottomSheet(
+    context: context,
+    isScrollControlled: true,
+    backgroundColor: Colors.transparent,
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
+    ),
+    builder: (context) => Container(
+      height: mqh * 0.7,
+      //padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
+      ),
+      child: itemDetailsPopUpWidget(context, mqw, mqh, itemName),
+    ),
+  );
+}
+
+Widget itemDetailsPopUpWidget(
+    BuildContext context, double mqw, double mqh, String itemName) {
   return Column(
     children: [
       Container(
@@ -27,14 +49,14 @@ Widget itemDetailsPopUpWidget(BuildContext context, double mqw, double mqh) {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Rice with chicken', style: TextStyles.offBeatTitle(context)),
+            Text(itemName, style: TextStyles.offBeatTitle(context)),
             SizedBox(
               height: mqh * 0.01,
             ),
             Text(itemDetail, style: TextStyles.otherTitle(context)),
-            SizedBox(
-              height: mqh * 0.02,
-            ),
+            // SizedBox(
+            //   height: mqh * 0.001,
+            // ),
           ],
         ),
       ),
@@ -45,7 +67,7 @@ Widget itemDetailsPopUpWidget(BuildContext context, double mqw, double mqh) {
         padding: const EdgeInsets.all(15),
         child: Column(
           children: [
-            SizedBox(height: mqh * 0.05),
+            SizedBox(height: mqh * 0.01),
             //Add to cart part
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -133,10 +155,10 @@ Widget itemDetailsPopUpWidget(BuildContext context, double mqw, double mqh) {
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
-      )
+      ),
     ],
   );
 }

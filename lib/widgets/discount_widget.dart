@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:off_beat_restaurant/constants/colors.dart';
 import 'package:off_beat_restaurant/constants/text_styles.dart';
 
-Widget discountWidget(BuildContext context, Color color) {
+Widget discountWidget(
+    BuildContext context, Color color, String discount, String minOrder) {
   double mqw = MediaQuery.of(context).size.width;
   double mqh = MediaQuery.of(context).size.height;
   return Container(
@@ -22,7 +22,7 @@ Widget discountWidget(BuildContext context, Color color) {
               ),
               Image.asset('assets/icons/discount.png', scale: 3),
               SizedBox(width: 8),
-              Text("20% off",
+              Text("$discount% off",
                   style: TextStyles.offBeatTitle(context)
                       .copyWith(color: Colors.white)),
               SizedBox(width: 15),
@@ -32,7 +32,7 @@ Widget discountWidget(BuildContext context, Color color) {
                   SizedBox(
                     height: 5,
                   ),
-                  Text('upto 300 AED',
+                  Text('upto $minOrder AED',
                       style: TextStyles.otherTitle(context).copyWith(
                           color: Colors.white, fontWeight: FontWeight.w300)),
                 ],

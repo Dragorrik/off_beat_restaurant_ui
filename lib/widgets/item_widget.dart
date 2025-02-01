@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:off_beat_restaurant/constants/colors.dart';
 import 'package:off_beat_restaurant/constants/text_styles.dart';
-import 'package:off_beat_restaurant/screens/items_screen.dart';
 
 String itemDescription =
     "250 gm - Tangy & spicy, a smash of chicken and cheese with mustard oil";
 
-Widget itemWidget(
-    BuildContext context, double mqh, double mqw, String section) {
+Widget itemWidget(BuildContext context, double mqh, double mqw, String section,
+    String itemName) {
   return Container(
     padding: EdgeInsets.all(5),
     decoration: BoxDecoration(
@@ -37,7 +36,7 @@ Widget itemWidget(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '$section margherita',
+                '$section - $itemName',
                 style: TextStyles.offBeatTitle(context)
                     .copyWith(fontSize: mqh * 0.02),
               ),

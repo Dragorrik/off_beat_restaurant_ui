@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:off_beat_restaurant/constants/colors.dart';
 import 'package:off_beat_restaurant/constants/text_styles.dart';
-import 'package:off_beat_restaurant/widgets/bottom_sheet_widget.dart';
 import 'package:off_beat_restaurant/widgets/variations_widget.dart';
 
 String specialRequestText =
@@ -10,7 +9,8 @@ String itemDetail =
     "Lorem ipsum dolor sit amet consectetur. Dignissim pulvinar non viverra pellentesque sollicitudin non risus. Proin a placerat nullam scelerisque tortor sit et sed semper.";
 
 class ItemDetailsScreen extends StatelessWidget {
-  const ItemDetailsScreen({super.key});
+  final String itemName;
+  const ItemDetailsScreen({super.key, required this.itemName});
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +37,7 @@ class ItemDetailsScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Rice with chicken',
-                      style: TextStyles.offBeatTitle(context)),
+                  Text(itemName, style: TextStyles.offBeatTitle(context)),
                   SizedBox(
                     height: mqh * 0.01,
                   ),
@@ -218,28 +217,7 @@ class ItemDetailsScreen extends StatelessWidget {
                     ],
                   ),
                   GestureDetector(
-                    onTap: () {
-                      showModalBottomSheet(
-                        context: context,
-                        isScrollControlled: true,
-                        backgroundColor: Colors.transparent,
-                        builder: (BuildContext context) {
-                          return Container(
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                topRight: Radius.circular(20),
-                              ),
-                            ),
-                            //padding: EdgeInsets.all(16),
-                            child: SingleChildScrollView(
-                              child: itemDetailsPopUpWidget(context, mqw, mqh),
-                            ),
-                          );
-                        },
-                      );
-                    },
+                    onTap: () {},
                     child: Container(
                       margin: EdgeInsets.only(top: 5),
                       padding: EdgeInsets.all(15),
